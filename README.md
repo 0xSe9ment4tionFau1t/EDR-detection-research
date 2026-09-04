@@ -2,7 +2,7 @@
 
 **Purpose:** Blue-team detection engineering research. This lab was built to understand exactly where a self-hosted EDR + Sysmon stack detects process-based attacks, and where it does not — so those gaps can be closed.
 
-The approach is iterative: deploy the detection stack, validate it fires against baseline techniques, then build a PoC that bypasses each detection layer one at a time. Every evasion step maps back to a specific detection gap and a recommended fix. The PoC itself has been redacted to avoid being used for malicious purposes.
+The approach is iterative: deploy the detection stack, validate it fires against baseline techniques, then build a PoC that bypasses each detection layer one at a time. Every evasion step maps back to a specific detection gap and a recommended fix. The PoC itself has been redacted to avoid being used for malicious purposes. The lab was done for educational purposes only.
 
 > Full write-up: [`report/edr_evasion_report.pdf`](report/edr_evasion_report.pdf)
 
@@ -105,8 +105,4 @@ type C:\Windows\Temp\out.txt
 - The most effective defensive response is not better regex — it is adding a telemetry layer (kernel ETW or call stack analysis) that operates independently of the parent-child relationship model.
 
 ---
-
-## Disclaimer
-
-This research was conducted entirely in an isolated home lab environment using self-hosted open-source tooling. No production systems were involved. The code and report are published for educational and defensive security purposes only.
 =======
