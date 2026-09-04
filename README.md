@@ -105,4 +105,3 @@ type C:\Windows\Temp\out.txt
 - The most effective defensive response is not better regex — it is adding a telemetry layer (kernel ETW or call stack analysis) that operates independently of the parent-child relationship model.
 
 ---
-=======
