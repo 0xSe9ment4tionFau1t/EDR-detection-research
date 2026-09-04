@@ -2,7 +2,7 @@
 
 **Purpose:** Blue-team detection engineering research. This lab was built to understand exactly where a self-hosted EDR + Sysmon stack detects process-based attacks, and where it does not — so those gaps can be closed.
 
-The approach is iterative: deploy the detection stack, validate it fires against baseline techniques, then build a PoC that bypasses each detection layer one at a time. Every evasion step maps back to a specific detection gap and a recommended fix.
+The approach is iterative: deploy the detection stack, validate it fires against baseline techniques, then build a PoC that bypasses each detection layer one at a time. Every evasion step maps back to a specific detection gap and a recommended fix. The PoC itself has been redacted to avoid being used for malicious purposes.
 
 > Full write-up: [`report/edr_evasion_report.pdf`](report/edr_evasion_report.pdf)
 
