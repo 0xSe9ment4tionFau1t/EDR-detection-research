@@ -110,4 +110,3 @@ type C:\Windows\Temp\out.txt
 
 This research was conducted entirely in an isolated home lab environment using self-hosted open-source tooling. No production systems were involved. The code and report are published for educational and defensive security purposes only.
 =======
-# EDR-detection-research
