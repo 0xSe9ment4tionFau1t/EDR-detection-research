@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # EDR Evasion & Detection Research
 
 **Purpose:** Blue-team detection engineering research. This lab was built to understand exactly where a self-hosted EDR + Sysmon stack detects process-based attacks, and where it does not — so those gaps can be closed.
@@ -64,12 +63,12 @@ Replaces external recon binaries (`whoami.exe`, `hostname.exe`) with `cmd.exe` b
 // Compile on Windows with MinGW/GCC:
 gcc PoC.c -o PoC.exe -masm=intel -Wall -lntdll
 // Optional: compress to reduce AV surface
-upx --ultrabrute v7.exe
+upx --ultrabrute poc.exe
 ```
 
-Output is written to `C:\Windows\Temp\v7out.txt`. Read with:
+Output is written to `C:\Windows\Temp\out.txt`. Read with:
 ```
-type C:\Windows\Temp\v7out.txt
+type C:\Windows\Temp\out.txt
 ```
 
 **Expected result:** Rule 92052 → silent. Rule 92032 → silent. Sysmon Event ID 1 count → 3 (one per `cmd.exe` payload, zero children each).
@@ -112,4 +111,3 @@ type C:\Windows\Temp\v7out.txt
 This research was conducted entirely in an isolated home lab environment using self-hosted open-source tooling. No production systems were involved. The code and report are published for educational and defensive security purposes only.
 =======
 # EDR-detection-research
->>>>>>> a660e104aac50846aba2bda649faffd8039c46db
