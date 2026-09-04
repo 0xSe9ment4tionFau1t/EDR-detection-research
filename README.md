@@ -37,7 +37,7 @@ Each version added one evasion layer, confirmed it in the EDR dashboard, then mo
 |---|---|---|---|---|
 | v1 | HWBP (DR0) + direct syscall (Hell's Gate SSN) + caret obfuscation | Fires | Fires | 2 |
 | v2 | + PPID spoofing (`explorer.exe` as fake parent) | **Silent** | Fires | 1 |
-| v3 / v7 | + No child process (`cmd.exe` built-ins + env vars only) | **Silent** | **Silent** | **0** |
+| v3 | + No child process (`cmd.exe` built-ins + env vars only) | **Silent** | **Silent** | **0** |
 
 ### Technique Detail
 
@@ -57,7 +57,7 @@ Replaces external recon binaries (`whoami.exe`, `hostname.exe`) with `cmd.exe` b
 
 ## Source File
 
-[`src/PoC.c`](src/PoC.c) — Final PoC (v7): full technique stack.
+[`src/PoC.c`](src/PoC.c) — Final PoC (v3): full technique stack.
 
 ```c
 // Compile on Windows with MinGW/GCC:
@@ -90,7 +90,7 @@ type C:\Windows\Temp\out.txt
 
 **Kernel ETW telemetry** — ETW captures syscall activity at the kernel level, independent of which API path was used. Direct syscalls that bypass `ntdll` hooks are still visible via ETW. Tools like SilkETW can integrate alongside a Sysmon stack to close the user-mode blind spot.
 
-**File write monitoring** — The v7 payload writes to `C:\Windows\Temp\`. Sysmon Event ID 11 would log this. An EDR rule alerting on file creation in Temp by `cmd.exe` instances with no prior child process events in the same session catches the file-based output even when process creation events are clean.
+**File write monitoring** — The v3 payload writes to `C:\Windows\Temp\`. Sysmon Event ID 11 would log this. An EDR rule alerting on file creation in Temp by `cmd.exe` instances with no prior child process events in the same session catches the file-based output even when process creation events are clean.
 
 **Call stack analysis** — Commercial EDR products can analyse the call stack at the moment of a syscall. A `SYSCALL` instruction with no `ntdll` frame above it is a strong anomaly signal. This is the primary capability gap between a Sysmon-based stack and products like CrowdStrike Falcon or SentinelOne for detecting direct syscall evasion.
 
